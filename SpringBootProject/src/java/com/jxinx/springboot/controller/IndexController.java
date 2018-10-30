@@ -25,4 +25,5 @@ public class IndexController {
     public String indexView() {
         return "index.jsp";
     }
+
 }
