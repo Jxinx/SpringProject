@@ -403,4 +403,71 @@
       camera_type_name = #{cameraTypeName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.CameraType">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="camera_type_name" jdbcType="VARCHAR" property="cameraTypeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, brand_name, camera_type_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from camera_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from camera_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.CameraType">
+    insert into camera_type (id, brand_name, camera_type_name
+      )
+    values (#{id,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR}, #{cameraTypeName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.CameraType">
+    insert into camera_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="brandName != null">
+        brand_name,
+      </if>
+      <if test="cameraTypeName != null">
+        camera_type_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraTypeName != null">
+        #{cameraTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.CameraType">
+    update camera_type
+    <set>
+      <if test="brandName != null">
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraTypeName != null">
+        camera_type_name = #{cameraTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.CameraType">
+    update camera_type
+    set brand_name = #{brandName,jdbcType=VARCHAR},
+      camera_type_name = #{cameraTypeName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

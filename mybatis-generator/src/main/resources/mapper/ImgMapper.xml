@@ -889,4 +889,152 @@
       stmp = #{stmp,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="CHAR" property="uuid" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="width" jdbcType="INTEGER" property="width" />
+    <result column="height" jdbcType="INTEGER" property="height" />
+    <result column="mime_type" jdbcType="VARCHAR" property="mimeType" />
+    <result column="source" jdbcType="INTEGER" property="source" />
+    <result column="video_id" jdbcType="INTEGER" property="videoId" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uuid, path, create_time, width, height, mime_type, source, video_id, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Img">
+    insert into img (id, uuid, path, 
+      create_time, width, height, 
+      mime_type, source, video_id, 
+      stmp)
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=CHAR}, #{path,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{width,jdbcType=INTEGER}, #{height,jdbcType=INTEGER}, 
+      #{mimeType,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, #{videoId,jdbcType=INTEGER}, 
+      #{stmp,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Img">
+    insert into img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="width != null">
+        width,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="mimeType != null">
+        mime_type,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="videoId != null">
+        video_id,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="width != null">
+        #{width,jdbcType=INTEGER},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=INTEGER},
+      </if>
+      <if test="mimeType != null">
+        #{mimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="videoId != null">
+        #{videoId,jdbcType=INTEGER},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Img">
+    update img
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="width != null">
+        width = #{width,jdbcType=INTEGER},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=INTEGER},
+      </if>
+      <if test="mimeType != null">
+        mime_type = #{mimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="videoId != null">
+        video_id = #{videoId,jdbcType=INTEGER},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Img">
+    update img
+    set uuid = #{uuid,jdbcType=CHAR},
+      path = #{path,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      width = #{width,jdbcType=INTEGER},
+      height = #{height,jdbcType=INTEGER},
+      mime_type = #{mimeType,jdbcType=VARCHAR},
+      source = #{source,jdbcType=INTEGER},
+      video_id = #{videoId,jdbcType=INTEGER},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>
