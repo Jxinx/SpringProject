@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.jxinx.mybatisgenerator.dao.Video2imgMapper">
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="second" jdbcType="INTEGER" property="second" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, second, frame
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img (id, name, second, 
+      frame)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{second,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="second != null">
+        second,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        second = #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    set name = #{name,jdbcType=VARCHAR},
+      second = #{second,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="second" jdbcType="INTEGER" property="second" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, second, frame
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img (id, name, second, 
+      frame)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{second,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="second != null">
+        second,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        second = #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    set name = #{name,jdbcType=VARCHAR},
+      second = #{second,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="second" jdbcType="INTEGER" property="second" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, second, frame
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img (id, name, second, 
+      frame)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{second,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="second != null">
+        second,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        second = #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    set name = #{name,jdbcType=VARCHAR},
+      second = #{second,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="second" jdbcType="INTEGER" property="second" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, second, frame
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img (id, name, second, 
+      frame)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{second,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="second != null">
+        second,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        second = #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    set name = #{name,jdbcType=VARCHAR},
+      second = #{second,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="second" jdbcType="INTEGER" property="second" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, second, frame
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img (id, name, second, 
+      frame)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{second,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="second != null">
+        second,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        second = #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    set name = #{name,jdbcType=VARCHAR},
+      second = #{second,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="second" jdbcType="INTEGER" property="second" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, second, frame
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video2img
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img (id, name, second, 
+      frame)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{second,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    insert into video2img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="second != null">
+        second,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null">
+        second = #{second,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video2img">
+    update video2img
+    set name = #{name,jdbcType=VARCHAR},
+      second = #{second,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

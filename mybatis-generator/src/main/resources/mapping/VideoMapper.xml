@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.jxinx.mybatisgenerator.dao.VideoMapper">
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="camera_id" jdbcType="INTEGER" property="cameraId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="video_length" jdbcType="INTEGER" property="videoLength" />
+    <result column="video_width" jdbcType="INTEGER" property="videoWidth" />
+    <result column="video_height" jdbcType="INTEGER" property="videoHeight" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+    <result column="encoding" jdbcType="VARCHAR" property="encoding" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, camera_id, create_time, start_time, end_time, video_length, video_width, 
+    video_height, frame, encoding, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video (id, path, camera_id, 
+      create_time, start_time, end_time, 
+      video_length, video_width, video_height, 
+      frame, encoding, stmp
+      )
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{cameraId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{videoLength,jdbcType=INTEGER}, #{videoWidth,jdbcType=INTEGER}, #{videoHeight,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER}, #{encoding,jdbcType=VARCHAR}, #{stmp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="cameraId != null">
+        camera_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="videoLength != null">
+        video_length,
+      </if>
+      <if test="videoWidth != null">
+        video_width,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="encoding != null">
+        encoding,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        camera_id = #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        video_length = #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        video_width = #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        encoding = #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    set path = #{path,jdbcType=VARCHAR},
+      camera_id = #{cameraId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      video_length = #{videoLength,jdbcType=INTEGER},
+      video_width = #{videoWidth,jdbcType=INTEGER},
+      video_height = #{videoHeight,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER},
+      encoding = #{encoding,jdbcType=VARCHAR},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="camera_id" jdbcType="INTEGER" property="cameraId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="video_length" jdbcType="INTEGER" property="videoLength" />
+    <result column="video_width" jdbcType="INTEGER" property="videoWidth" />
+    <result column="video_height" jdbcType="INTEGER" property="videoHeight" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+    <result column="encoding" jdbcType="VARCHAR" property="encoding" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, camera_id, create_time, start_time, end_time, video_length, video_width, 
+    video_height, frame, encoding, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video (id, path, camera_id, 
+      create_time, start_time, end_time, 
+      video_length, video_width, video_height, 
+      frame, encoding, stmp
+      )
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{cameraId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{videoLength,jdbcType=INTEGER}, #{videoWidth,jdbcType=INTEGER}, #{videoHeight,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER}, #{encoding,jdbcType=VARCHAR}, #{stmp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="cameraId != null">
+        camera_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="videoLength != null">
+        video_length,
+      </if>
+      <if test="videoWidth != null">
+        video_width,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="encoding != null">
+        encoding,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        camera_id = #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        video_length = #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        video_width = #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        encoding = #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    set path = #{path,jdbcType=VARCHAR},
+      camera_id = #{cameraId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      video_length = #{videoLength,jdbcType=INTEGER},
+      video_width = #{videoWidth,jdbcType=INTEGER},
+      video_height = #{videoHeight,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER},
+      encoding = #{encoding,jdbcType=VARCHAR},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="camera_id" jdbcType="INTEGER" property="cameraId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="video_length" jdbcType="INTEGER" property="videoLength" />
+    <result column="video_width" jdbcType="INTEGER" property="videoWidth" />
+    <result column="video_height" jdbcType="INTEGER" property="videoHeight" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+    <result column="encoding" jdbcType="VARCHAR" property="encoding" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, camera_id, create_time, start_time, end_time, video_length, video_width, 
+    video_height, frame, encoding, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video (id, path, camera_id, 
+      create_time, start_time, end_time, 
+      video_length, video_width, video_height, 
+      frame, encoding, stmp
+      )
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{cameraId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{videoLength,jdbcType=INTEGER}, #{videoWidth,jdbcType=INTEGER}, #{videoHeight,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER}, #{encoding,jdbcType=VARCHAR}, #{stmp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="cameraId != null">
+        camera_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="videoLength != null">
+        video_length,
+      </if>
+      <if test="videoWidth != null">
+        video_width,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="encoding != null">
+        encoding,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        camera_id = #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        video_length = #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        video_width = #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        encoding = #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    set path = #{path,jdbcType=VARCHAR},
+      camera_id = #{cameraId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      video_length = #{videoLength,jdbcType=INTEGER},
+      video_width = #{videoWidth,jdbcType=INTEGER},
+      video_height = #{videoHeight,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER},
+      encoding = #{encoding,jdbcType=VARCHAR},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="camera_id" jdbcType="INTEGER" property="cameraId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="video_length" jdbcType="INTEGER" property="videoLength" />
+    <result column="video_width" jdbcType="INTEGER" property="videoWidth" />
+    <result column="video_height" jdbcType="INTEGER" property="videoHeight" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+    <result column="encoding" jdbcType="VARCHAR" property="encoding" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, camera_id, create_time, start_time, end_time, video_length, video_width, 
+    video_height, frame, encoding, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video (id, path, camera_id, 
+      create_time, start_time, end_time, 
+      video_length, video_width, video_height, 
+      frame, encoding, stmp
+      )
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{cameraId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{videoLength,jdbcType=INTEGER}, #{videoWidth,jdbcType=INTEGER}, #{videoHeight,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER}, #{encoding,jdbcType=VARCHAR}, #{stmp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="cameraId != null">
+        camera_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="videoLength != null">
+        video_length,
+      </if>
+      <if test="videoWidth != null">
+        video_width,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="encoding != null">
+        encoding,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        camera_id = #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        video_length = #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        video_width = #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        encoding = #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    set path = #{path,jdbcType=VARCHAR},
+      camera_id = #{cameraId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      video_length = #{videoLength,jdbcType=INTEGER},
+      video_width = #{videoWidth,jdbcType=INTEGER},
+      video_height = #{videoHeight,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER},
+      encoding = #{encoding,jdbcType=VARCHAR},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="camera_id" jdbcType="INTEGER" property="cameraId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="video_length" jdbcType="INTEGER" property="videoLength" />
+    <result column="video_width" jdbcType="INTEGER" property="videoWidth" />
+    <result column="video_height" jdbcType="INTEGER" property="videoHeight" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+    <result column="encoding" jdbcType="VARCHAR" property="encoding" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, camera_id, create_time, start_time, end_time, video_length, video_width, 
+    video_height, frame, encoding, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video (id, path, camera_id, 
+      create_time, start_time, end_time, 
+      video_length, video_width, video_height, 
+      frame, encoding, stmp
+      )
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{cameraId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{videoLength,jdbcType=INTEGER}, #{videoWidth,jdbcType=INTEGER}, #{videoHeight,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER}, #{encoding,jdbcType=VARCHAR}, #{stmp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="cameraId != null">
+        camera_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="videoLength != null">
+        video_length,
+      </if>
+      <if test="videoWidth != null">
+        video_width,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="encoding != null">
+        encoding,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        camera_id = #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        video_length = #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        video_width = #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        encoding = #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    set path = #{path,jdbcType=VARCHAR},
+      camera_id = #{cameraId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      video_length = #{videoLength,jdbcType=INTEGER},
+      video_width = #{videoWidth,jdbcType=INTEGER},
+      video_height = #{videoHeight,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER},
+      encoding = #{encoding,jdbcType=VARCHAR},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.github.jxinx.mybatisgenerator.entity.Video">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="camera_id" jdbcType="INTEGER" property="cameraId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="video_length" jdbcType="INTEGER" property="videoLength" />
+    <result column="video_width" jdbcType="INTEGER" property="videoWidth" />
+    <result column="video_height" jdbcType="INTEGER" property="videoHeight" />
+    <result column="frame" jdbcType="INTEGER" property="frame" />
+    <result column="encoding" jdbcType="VARCHAR" property="encoding" />
+    <result column="stmp" jdbcType="TIMESTAMP" property="stmp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, camera_id, create_time, start_time, end_time, video_length, video_width, 
+    video_height, frame, encoding, stmp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video (id, path, camera_id, 
+      create_time, start_time, end_time, 
+      video_length, video_width, video_height, 
+      frame, encoding, stmp
+      )
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{cameraId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{videoLength,jdbcType=INTEGER}, #{videoWidth,jdbcType=INTEGER}, #{videoHeight,jdbcType=INTEGER}, 
+      #{frame,jdbcType=INTEGER}, #{encoding,jdbcType=VARCHAR}, #{stmp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="cameraId != null">
+        camera_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="videoLength != null">
+        video_length,
+      </if>
+      <if test="videoWidth != null">
+        video_width,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="encoding != null">
+        encoding,
+      </if>
+      <if test="stmp != null">
+        stmp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraId != null">
+        camera_id = #{cameraId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoLength != null">
+        video_length = #{videoLength,jdbcType=INTEGER},
+      </if>
+      <if test="videoWidth != null">
+        video_width = #{videoWidth,jdbcType=INTEGER},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=INTEGER},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=INTEGER},
+      </if>
+      <if test="encoding != null">
+        encoding = #{encoding,jdbcType=VARCHAR},
+      </if>
+      <if test="stmp != null">
+        stmp = #{stmp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.jxinx.mybatisgenerator.entity.Video">
+    update video
+    set path = #{path,jdbcType=VARCHAR},
+      camera_id = #{cameraId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      video_length = #{videoLength,jdbcType=INTEGER},
+      video_width = #{videoWidth,jdbcType=INTEGER},
+      video_height = #{videoHeight,jdbcType=INTEGER},
+      frame = #{frame,jdbcType=INTEGER},
+      encoding = #{encoding,jdbcType=VARCHAR},
+      stmp = #{stmp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
