@@ -1,5 +1,6 @@
 package tech.jxinx.springboot.mybatisplus;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,27 @@ class SpringbootMybatisPlusApplicationTests {
         roleInfoPage.setSize(3);
 
         roleinfoMapper.selectPage(roleInfoPage, null);
+
+        // 总记录数
+        System.out.println("roleInfoPage.getTotal() = " + roleInfoPage.getTotal());
+        // 总页数
+        System.out.println("roleInfoPage.getPages() = " + roleInfoPage.getPages());
+
+        // 数据列表
+        List<RoleInfo> records = roleInfoPage.getRecords();
+        records.forEach(System.out::println);
+    }
+
+    @Test
+    void testLikeSql() {
+        // 模糊查询
+        Page<RoleInfo> roleInfoPage = new Page<>();
+        roleInfoPage.setCurrent(1);
+        roleInfoPage.setSize(2);
+
+        QueryWrapper<RoleInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("rolename", "员");
+        roleinfoMapper.selectPage(roleInfoPage, queryWrapper);
 
         // 总记录数
         System.out.println("roleInfoPage.getTotal() = " + roleInfoPage.getTotal());
